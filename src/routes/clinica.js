@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const mentionsController = require('../controllers/mentions-controller');
+const mentionsController = require('../controllers/clinica');
 
 router.get('/', mentionsController.listMentions);
 router.post('/', mentionsController.createMention);

@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const Mentions = mongoose.model('Mentions');
 
 // list
-exports.listMentions = async (req, res) => {
+exports.listAvaClinicas = async (req, res) => {
   try {
-    const data = await Mentions.find({});
+    const data = await AvaClinicas.find({});
     res.status(200).send(data);
   } catch (e) {
     res.status(500).send({message: 'Falha ao carregar as menções.'});
@@ -12,7 +12,7 @@ exports.listMentions = async (req, res) => {
 };
 
 // create
-exports.createMention = async (req, res) => {
+exports.createClinica = async (req, res) => {
   try {
 
     await cria(req).save();
@@ -25,9 +25,10 @@ exports.createMention = async (req, res) => {
   }
 }
 function cria(req){
-    const mentions = new Mentions({
-        friend: req.body.friend,
-        mention: req.body.mention
+    const clinica = new clinica({
+        idClinica: req.body.idClinica,
+        data: req.body.data,
+        box: req.body.box
     });
-    return mentions;
+    return clinica;
 }
